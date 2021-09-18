@@ -5,128 +5,69 @@
         <div class="col-sm-10">
             <div class="element-wrapper">
                 <div class="element-box">
-                    <form id="formValidate">
-                        <div class="element-info">
-                            <div class="element-info-with-icon">
-                                <div class="element-info-icon">
-                                    <div class="os-icon os-icon-wallet-loaded"></div>
-                                </div>
-                                <div class="element-info-text">
-                                    <h5 class="element-inner-header">
-                                        Profile Settings
-                                    </h5>
-                                    <div class="element-inner-desc">
-                                        Validation of the form is made possible using powerful validator plugin for bootstrap. <a href="http://1000hz.github.io/bootstrap-validator/" target="_blank">Learn more about Bootstrap Validator</a>
-                                    </div>
-                                </div>
+                    <form>
+                        <h5 class="form-header">
+                            Account Details
+                        </h5>
+                        <div class="form-desc">
+                            If you feel that you have a weaker strength password, then please change it. We recommend to change your password in every 45 days to make it secure.
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="bank_name"> User Full Name:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="bank" placeholder="Bruce Lee" type="text">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for=""> Email address</label><input class="form-control" data-error="Your email address is invalid" placeholder="Enter email" required="required" type="email">
-                            <div class="help-block form-text with-errors form-control-feedback"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for=""> Password</label><input class="form-control" data-minlength="6" placeholder="Password" required="required" type="password">
-                                    <div class="help-block form-text text-muted form-control-feedback">
-                                        Minimum of 6 characters
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="">Confirm Password</label><input class="form-control" data-match-error="Passwords don&#39;t match" placeholder="Confirm Password" required="required" type="password">
-                                    <div class="help-block form-text with-errors form-control-feedback"></div>
-                                </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="name">Email ID</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" placeholder="Email@example.com" type="Email">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for=""> Regular select</label><select class="form-control">
-                                <option value="New York">
-                                    New York
-                                </option>
-                                <option value="California">
-                                    California
-                                </option>
-                                <option value="Boston">
-                                    Boston
-                                </option>
-                                <option value="Texas">
-                                    Texas
-                                </option>
-                                <option value="Colorado">
-                                    Colorado
-                                </option>
-                            </select>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">Phone Number</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="account_number" placeholder="Phone" type="text">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for=""> Multiselect</label><select class="form-control select2" multiple="true">
-                                <option selected="true">
-                                    New York
-                                </option>
-                                <option selected="true">
-                                    California
-                                </option>
-                                <option>
-                                    Boston
-                                </option>
-                                <option>
-                                    Texas
-                                </option>
-                                <option>
-                                    Colorado
-                                </option>
-                            </select>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">Address</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="account_number" placeholder="12 Washington" type="text">
+                            </div>
                         </div>
-                        <fieldset class="form-group">
-                            <legend><span>Section Example</span></legend>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for=""> First Name</label><input class="form-control" data-error="Please input your First Name" placeholder="First Name" required="required" type="text">
-                                        <div class="help-block form-text with-errors form-control-feedback"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">Last Name</label><input class="form-control" data-error="Please input your Last Name" placeholder="Last Name" required="required" type="text">
-                                        <div class="help-block form-text with-errors form-control-feedback"></div>
-                                    </div>
-                                </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">City / State</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="account_number" placeholder="Ohio" type="text">
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for=""> Date of Birth</label><input class="single-daterange form-control" placeholder="Date of birth" type="text" value="04/12/1978">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">Twitter Username</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    @
-                                                </div>
-                                            </div>
-                                            <input class="form-control" placeholder="Twitter Username" type="text">
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">Zip Code</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="zip" placeholder="Ohio" type="text">
                             </div>
-                            <div class="form-group">
-                                <label for="">Date Range Picker</label><input class="multi-daterange form-control" type="text" value="03/31/2017 - 04/06/2017">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">Account Number</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="Account_number" placeholder="21093844922" type="text">
                             </div>
-                            <div class="form-group">
-                                <label> Example textarea</label><textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">Account Balance</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="account_balance" placeholder="2109,000.00" type="text" disabled>
                             </div>
-                        </fieldset>
-                        <div class="form-check">
-                            <label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to terms and conditions</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">Account Pin</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="Account_pin" placeholder="2109" type="text">
+                            </div>
                         </div>
                         <div class="form-buttons-w">
-                            <button class="btn btn-primary" type="submit"> Submit</button>
+{{--                            <button class="btn btn-primary" type="submit" disabled> Submit</button>--}}
                         </div>
                     </form>
                 </div>
