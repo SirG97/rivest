@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
+use App\Models\FixedDeposit;
+use App\Models\Loan;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,13 +14,19 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function profile(){
-        return view('profile');
+    public function dashboard(){
+        $account = Account::where('user_id', auth()->user()->id)->first();
+        $loan = Loan::where('user_id', auth()->user()->id)->sum('amount');
+        $fixedDeposit = FixedDeposit::where('user_id', auth()->user()->id)->sum('amount') ;
+        return view('dashboard', ['account' => $account, 'loan' => $loan, 'fixedDeposit' => $fixedDeposit]);
     }
 
-    public function statement(){
-        return view('statement');
+    public function profile(){
+        $account = Account::where('user_id', auth()->user()->id)->first();
+        return view('profile', ['account' => $account]);
     }
+
+
 
     public function fund(){
         return view('fund');

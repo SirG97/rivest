@@ -1,5 +1,6 @@
 <x-app-layout>
     <div class="element-wrapper">
+        @include('includes.feedback')
         <h6 class="element-header">
            Statement
         </h6>
@@ -27,94 +28,50 @@
                         <th>
                             Transaction Details
                         </th>
+                        <th>
+                            Debit
+                        </th>
+                        <th>
+                            Credit
+                        </th>
                         <th class="text-center">
-                            Withdrawal(DR)
-                        </th>
-                        <th class="text-right">
-                            Deposit(CR)
-                        </th>
-                        <th class="text-right">
                             Status
                         </th>
                     </tr>
                     </thead>
+
                     <tbody>
-                    <tr>
-                        <td>9/18/2021</td>
-                        <td>
-                            STKRVS1209834
-                        </td>
-                        <td>
-                            Credit allert for pocket money
-                        </td>
-                        <td>
+                    @foreach($transactions as $transaction)
+                        <tr>
+                            <td>{{$transaction['updated_at'] }}</td>
+                            <td>
+                                {{$transaction['txn_ref'] }}
+                            </td>
+                            <td>
+                                {{ $transaction['description'] }}
+                            </td>
+                            <td>
+                                @if($transaction['txn_type'] == 'debit')
+                                    ${{ $transaction['amount'] }}
+                                @endif
+                            </td>
+                            <td class="text-right">
+                                @if($transaction['txn_type'] == 'credit')
+                                    ${{ $transaction['amount'] }}
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if($transaction['status'] == 'success')
+                                    <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
+                                @elseif($transaction['status'] == 'pending')
+                                    <div class="status-pill yellow" data-title="Pending" data-toggle="tooltip"></div>
+                                @elseif($transaction['status'] == 'failed')
+                                    <div class="status-pill green" data-title="Failed" data-toggle="tooltip"></div>
+                                @endif
+                            </td>
 
-                        </td>
-                        <td class="text-right">
-                            $354
-                        </td>
-                        <td class="text-center">
-                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>9/18/2021</td>
-                        <td>
-                            STKRVS1209834
-                        </td>
-                        <td>
-                            Credit allert for pocket money
-                        </td>
-                        <td>
-                            $221
-                        </td>
-                        <td class="text-right">
-
-                        </td>
-                        <td class="text-center">
-                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>9/18/2021</td>
-                        <td>
-                            STKRVS1209834
-                        </td>
-                        <td>
-                            Credit allert for pocket money
-                        </td>
-                        <td>
-                            $112
-                        </td>
-                        <td class="text-right">
-
-                        </td>
-                        <td class="text-center">
-                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>9/18/2021</td>
-                        <td>
-                            STKRVS1209834
-                        </td>
-                        <td>
-                            Credit allert for pocket money
-                        </td>
-                        <td>
-
-                        </td>
-                        <td class="text-right">
-                            $354
-                        </td>
-                        <td class="text-center">
-                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
-                        </td>
-
-                    </tr>
+                        </tr>
+                    @endforeach
 
                     </tbody>
                 </table>

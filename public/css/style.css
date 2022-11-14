@@ -67,6 +67,10 @@ li {
     text-transform: uppercase;
 }
 
+.logo-w{
+    padding: 40px;
+}
+
 .navbar-header h1 a {
     color: #026fbf;
     text-decoration: none;

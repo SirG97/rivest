@@ -336,9 +336,9 @@
             </div>
             <!--------------------
             END - Mobile Menu
-            --------------------><!--------------------
-        START - Main Menu
-        -------------------->
+            -------------------->
+            <!-------------------- START - Main Menu  -------------------->
+
             <div class="menu-w selected-menu-color-light menu-activated-on-hover menu-has-selected-link color-scheme-light color-style-transparent sub-menu-color-bright menu-position-side menu-side-left menu-layout-full sub-menu-style-over">
                 <div class="logged-user-w avatar-inline">
                     <div class="logged-user-i">
@@ -347,34 +347,30 @@
                         </div>
                         <div class="logged-user-info-w">
                             <div class="logged-user-name">
-                                Maria Gomez
-                            </div>
-                            <div class="logged-user-role">
-                                Administrator
-                            </div>
-                        </div>
-                        <div class="logged-user-toggler-arrow">
-                            <div class="os-icon os-icon-chevron-down"></div>
-                        </div>
-                        <div class="logged-user-menu color-style-bright">
-                            <div class="logged-user-avatar-info">
-                                <div class="avatar-w">
-                                    <img alt="" src="img/avatar1.jpg">
-                                </div>
-                                <div class="logged-user-info-w">
-                                    <div class="logged-user-name">
-                                        Maria Gomez
-                                    </div>
-                                    <div class="logged-user-role">
-                                        Administrator
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-icon">
-                                <i class="os-icon os-icon-wallet-loaded"></i>
+                                {{ auth()->user()->first_name . ' ' . auth()->user()->last_name}}
                             </div>
 
                         </div>
+{{--                        <div class="logged-user-toggler-arrow">--}}
+{{--                            <div class="os-icon os-icon-chevron-down"></div>--}}
+{{--                        </div>--}}
+{{--                        <div class="logged-user-menu color-style-bright">--}}
+{{--                            <div class="logged-user-avatar-info">--}}
+{{--                                <div class="avatar-w">--}}
+{{--                                    <img alt="" src="img/avatar1.jpg">--}}
+{{--                                </div>--}}
+{{--                                <div class="logged-user-info-w">--}}
+{{--                                    <div class="logged-user-name">--}}
+{{--                                       {{ auth()->user()->first_name . ' ' . auth()->user()->last_name}}--}}
+{{--                                    </div>--}}
+
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="bg-icon">--}}
+{{--                                <i class="os-icon os-icon-wallet-loaded"></i>--}}
+{{--                            </div>--}}
+
+{{--                        </div>--}}
                     </div>
                 </div>
 
@@ -385,7 +381,7 @@
                     <li class="sub-header">
                         <span>Account</span>
                     </li>
-                    <li class="selected has-sub-menu">
+                    <li class="selected">
                         <a href="/dashboard">
                             <div class="icon-w">
                                 <div class="os-icon os-icon-layout"></div>
@@ -401,7 +397,7 @@
                             <span>Account Details</span></a>
 
                     </li>
-                    <li class=" ">
+                    <li class="">
                         <a href="/statement">
                             <div class="icon-w">
                                 <div class="os-icon os-icon-file-text"></div>
@@ -413,7 +409,50 @@
                             <div class="icon-w">
                                 <div class="os-icon os-icon-wallet-loaded"></div>
                             </div>
-                            <span>Fund Transfer</span></a>
+                            <span>Transfer</span>
+                        </a>
+                        <div class="sub-menu-w">
+                            <div class="sub-menu-header">
+                                Transfers
+                            </div>
+                            <div class="sub-menu-icon">
+                                <i class="os-icon os-icon-layout"></i>
+                            </div>
+                            <div class="sub-menu-i">
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="/transfer/local">Domestic transfer</a>
+                                    </li>
+                                    <li>
+                                        <a href="/transfer/inter-bank">Inter bank transfer</a>
+                                    </li>
+                                    <li>
+                                        <a href="/transfer/international">Wire Transfer</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" has-sub-menu">
+                        <a href="/fund">
+                            <div class="icon-w">
+                                <div class="os-icon os-icon-finance-29"></div>
+                            </div>
+                            <span>Loan & Mortgages</span></a>
+                    </li>
+                    <li class=" has-sub-menu">
+                        <a href="/fund">
+                            <div class="icon-w">
+                                <div class="os-icon os-icon-coins-4"></div>
+                            </div>
+                            <span>Fixed Deposit</span></a>
+                    </li>
+                    <li class=" has-sub-menu">
+                        <a href="/fund">
+                            <div class="icon-w">
+                                <div class="os-icon os-icon-credit-card"></div>
+                            </div>
+                            <span>Virtual Card</span></a>
                     </li>
                     <li class="sub-header">
                         <span>Security</span>
@@ -433,11 +472,16 @@
                             <span>Change Pin</span></a>
                     </li>
                     <li class=" has-sub-menu">
-                        <a href="#">
+                        <a href="{{ route('logout') }}" class="nav_link nav_flex" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                             <div class="icon-w">
                                 <div class="os-icon os-icon-log-out"></div>
                             </div>
                             <span>Logout</span></a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
 
                 </ul>
@@ -486,6 +530,7 @@
     <script src="{{ asset('bower_components/bootstrap/js/dist/popover.js') }}"></script>
     <script src="{{ asset('js/demo_customizer.js?version=4.5.0') }}"></script>
     <script src="{{ asset('js/main.js?version=4.5.0') }}"></script>
+    <script src="{{ asset('js/validation.js') }}"></script>
     </body>
 {{--    <body class="font-sans antialiased">--}}
 {{--        <div class="min-h-screen bg-gray-100">--}}

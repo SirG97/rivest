@@ -9,66 +9,67 @@
                         <h5 class="form-header">
                             Account Details
                         </h5>
-                        <div class="form-desc">
-                            If you feel that you have a weaker strength password, then please change it. We recommend to change your password in every 45 days to make it secure.
-                        </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-4" for="bank_name"> User Full Name:</label>
                             <div class="col-sm-8">
-                                <input class="form-control" name="bank" placeholder="Bruce Lee" type="text">
+                                <input class="form-control" value="{{ auth()->user()->first_name . ' ' . auth()->user()->last_name }}" placeholder="Bruce Lee" type="text" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-4" for="name">Email ID</label>
                             <div class="col-sm-8">
-                                <input class="form-control" placeholder="Email@example.com" type="Email">
+                                <input class="form-control" value="{{ auth()->user()->email}}" placeholder="" type="Email" disabled>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-4" for="">Phone Number</label>
                             <div class="col-sm-8">
-                                <input class="form-control" name="account_number" placeholder="Phone" type="text">
+                                <input class="form-control" value="{{ auth()->user()->phone}}"  placeholder="Phone" type="text" disabled>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-4" for="">Address</label>
                             <div class="col-sm-8">
-                                <input class="form-control" name="account_number" placeholder="12 Washington" type="text">
+                                <input class="form-control" value="{{ auth()->user()->address }}" placeholder="12 Washington" type="text" disabled>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-sm-4" for="">City / State</label>
+                            <label class="col-form-label col-sm-4" for="">City</label>
                             <div class="col-sm-8">
-                                <input class="form-control" name="account_number" placeholder="Ohio" type="text">
+                                <input class="form-control" value="{{ auth()->user()->city }}" placeholder="Ohio" type="text" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">State</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="{{ auth()->user()->state }}" placeholder="Ohio" type="text" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-4" for="">Country</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="{{ auth()->user()->country }}" placeholder="Ohio" type="text" disabled>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-4" for="">Zip Code</label>
                             <div class="col-sm-8">
-                                <input class="form-control" name="zip" placeholder="Ohio" type="text">
+                                <input class="form-control" value="{{ auth()->user()->zip }}" placeholder="Ohio" type="text" disabled>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-4" for="">Account Number</label>
                             <div class="col-sm-8">
-                                <input class="form-control" name="Account_number" placeholder="21093844922" type="text">
+                                <input class="form-control" value={{$account->account_number}} name="Account_number"  type="text" disabled>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-4" for="">Account Balance</label>
                             <div class="col-sm-8">
-                                <input class="form-control" name="account_balance" placeholder="2109,000.00" type="text" disabled>
+                                <input class="form-control" value="{{ '$'. number_format($account->balance, '2', '.', ',') }}" name="account_balance"  type="text" disabled>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-4" for="">Account Pin</label>
-                            <div class="col-sm-8">
-                                <input class="form-control" name="Account_pin" placeholder="2109" type="text">
-                            </div>
-                        </div>
-                        <div class="form-buttons-w">
-{{--                            <button class="btn btn-primary" type="submit" disabled> Submit</button>--}}
-                        </div>
+
                     </form>
                 </div>
             </div>

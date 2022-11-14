@@ -19,10 +19,10 @@
 
             <!-- Email Address -->
             <div class="form-group">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="account_no" :value="__('Account no')" />
 
-                <x-input id="email" class="" type="email" name="email" :value="old('email')" required autofocus />
-                <div class="pre-icon os-icon os-icon-email-2-at2"></div>
+                <x-input id="account_no" class="" type="text" name="account_no" :value="old('account_no')" required autofocus />
+{{--                <div class="pre-icon os-icon os-icon-email-2-at2"></div>--}}
             </div>
 
             <!-- Password -->
@@ -30,7 +30,7 @@
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" />
-                <div class="pre-icon os-icon os-icon-fingerprint"></div>
+{{--                <div class="pre-icon os-icon os-icon-fingerprint"></div>--}}
             </div>
 
 {{--                <div class="buttons-w">--}}
